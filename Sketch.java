@@ -14,8 +14,8 @@ public class Sketch extends JPanel
   {
    addMouseListener(new MouseAdapter()
    {
-     Timer timer = new Timer();
-     TimerTask task = new MyTimerTask();
+     Timer timer;
+     TimerTask task;
      boolean ifPressed = false;
      private class MyTimerTask extends TimerTask
      {
@@ -31,6 +31,8 @@ public class Sketch extends JPanel
 
      public void mousePressed(MouseEvent e)
      {
+      timer = new Timer();
+      task = new MyTimerTask();
       timer.schedule(task,0,80);
      }
 
@@ -39,17 +41,6 @@ public class Sketch extends JPanel
      timer.stop();
     }
 
-/*
-   public static void runDraw(MouseEvent m)
-   {
-     while(m.ifPressed)
-     {
-       timer.schedule(task,0,80);
-       if(!m.ifPressed)
-       task.cancel();
-     }
-   }
- */
 
    });
   }
